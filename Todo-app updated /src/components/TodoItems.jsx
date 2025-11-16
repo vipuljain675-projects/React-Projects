@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 import styles from "./TodoItems.module.css";
 import { use } from "react";
 
-const TodoItems = ({ onDeleteClick }) => {
+const TodoItems = () => {
   const todoItems = useContext(TodoItemsContext);
   console.log(todoItems);
   return (
@@ -14,7 +14,6 @@ const TodoItems = ({ onDeleteClick }) => {
           key={item.id}
           todoDate={item.dueDate}
           todoName={item.name}
-          onDeleteClick={onDeleteClick}
         ></TodoItem>
       ))}
     </div>
