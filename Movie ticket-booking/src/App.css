@@ -1,0 +1,217 @@
+/* ---------- Reset & Base Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f5f2;
+  color: #333;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1604908812340-2a7f5b1a1ed7?auto=format&fit=crop&w=1470&q=80") center/cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-content span {
+  color: #ff6b3d;
+}
+
+.hero-content p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* ---------- Cards Section ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #ddd;
+  transform: scale(1.05);
+}
+
+.primary {
+  background-color: #ff6b3d;
+  color: white;
+}
+
+.primary:hover {
+  background-color: #e0582f;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: linear-gradient(to right, #fff, #f9f5f2);
+  padding: 3rem 1rem;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+footer h2 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+footer p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subscribe input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.small {
+  color: #aaa;
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .cards {
+    padding: 2rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+/* -------- Bill Box -------- */
+.bill-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.bill-box {
+  text-align: left;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f9f5f2;
+  border-radius: 10px;
+}
+
+.bill-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.bill-item:last-child {
+  border-bottom: none;
+}
+
+/* Horizontal movies layout */
+.movies-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;   /* allows wrapping on small screens */
+  margin: 1rem 0;
+}
+
+.movie-card {
+  background: #f9f5f2;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  width: 180px;
+  text-align: left;
+  font-size: 0.95rem;
+}
