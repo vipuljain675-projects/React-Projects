@@ -3,24 +3,48 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import WelcomeMessage from "./components/WelcomeMessage";
 import "./App.css";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { TodoItemsContext } from "./store/todo-items-store";
 
+const todoItemsReducer = (currTodoItems, action) => {
+  let newTodoItems = currTodoItems;
+  if (action.type === "New_Item") {
+    newTodoItems = [
+      ...currTodoItems,
+      { name: action.payload.itemName, dueDate: action.payload.itemDueDate },
+    ];
+  } else if (action.type === "Delete_Item") {
+    newTodoItems = currTodoItems.filter(
+      (item) => item.name !== action.payload.itemName
+    );
+  }
+  return newTodoItems;
+};
+
 function App() {
-  const [todoItems, setTodoItems] = useState([]);
+  const [todoItems, dispatchtodoItems] = useReducer(todoItemsReducer, []);
 
   const addNewItem = (itemName, itemDueDate) => {
-    console.log(`New Item Added: ${itemName} Date:${itemDueDate}`);
-    const newTodoItems = [
-      ...todoItems,
-      { id: Date.now(), name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newTodoItems);
+    const newItemAction = {
+      type: "New_Item",
+      payload: {
+        itemName,
+        itemDueDate,
+      },
+    };
+
+    dispatchtodoItems(newItemAction);
   };
 
   const deleteItem = (todoItemName) => {
-    const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
-    setTodoItems(newTodoItems);
+    const deleteItemAction = {
+      type: "Delete_Item",
+      payload: {
+        itemName: todoItemName,
+      },
+    };
+
+    dispatchtodoItems(deleteItemAction);
   };
 
   return (
