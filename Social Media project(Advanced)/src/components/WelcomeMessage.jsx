@@ -1,10 +1,9 @@
-function WelcomeMessage() {
+const WelcomeMessage = () => {
   return (
-    <div className="alert alert-info mt-4">
-      <h4>No posts yet!</h4>
-      <p>Create your first post to get started.</p>
-    </div>
+    <center className="Welcome-Message">
+      <h1>There are no posts yet</h1>
+    </center>
   );
-}
+};
 
 export default WelcomeMessage;
