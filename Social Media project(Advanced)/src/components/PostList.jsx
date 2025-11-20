@@ -1,19 +1,23 @@
 import { useContext } from "react";
+import { PostList } from "../store/post-list-store";
 import Post from "./Post";
-import { PostList as PostListData } from "../store/post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
 import LoadingSpinner from "./LoadingSpinner";
 
-const PostList = () => {
-  const { postList, fetching } = useContext(PostListData);
+function PostListComponent() {
+  const { postList, fetching } = useContext(PostList);
 
   return (
-    <>
-      {fetching && <LoadingSpinner />}
-      {!fetching && postList.length === 0 && <WelcomeMessage />}
-      {!fetching && postList.map((post) => <Post key={post.id} post={post} />)}
-    </>
+    <div className="post-list">
+      {fetching ? (
+        <LoadingSpinner />
+      ) : postList.length === 0 ? (
+        <WelcomeMessage />
+      ) : (
+        postList.map((post) => <Post key={post.id} post={post} />)
+      )}
+    </div>
   );
-};
+}
 
-export default PostList;
+export default PostListComponent;
